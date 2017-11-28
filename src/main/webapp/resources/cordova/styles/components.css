@@ -80,6 +80,11 @@
 }
 
 
+.rotulo_menor {
+	width: 80px !important;
+	text-align: right;
+}
+
 .rotulo {
 	width: 150px !important;
 	text-align: right;

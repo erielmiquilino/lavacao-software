@@ -6,25 +6,24 @@
                 xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
                 template="/WEB-INF/template/Layout.xhtml">
 
-
     <ui:define name="content">
         <h:form>
             <br />
             <p:messages closable="true" autoUpdate="true" />
-            <p:dataTable value="#{entidadesBean.entidades}" widgetVar="listaClientes"
+            <p:dataTable value="#{servicosBean.servicos}" widgetVar="listaServicos"
                          selectionMode="single" emptyMessage="Nenhum item adicionado"
                          reflow="true" var="dados" id="dadosTabela" multiViewState="true"
-                         rowKey="#{dados.id}" selection="#{entidadesBean.entidade}" filteredValue="#{entidadesBean.entidadesFiltro}"
+                         rowKey="#{dados.id}" selection="#{servicosBean.servico}" filteredValue="#{servicosBean.servicosFiltro}"
                          rows="20" >
 
                 <f:facet name="header">
                     <div align="left">
                         <p:outputPanel style="aling:left">
-                            <p:outputLabel style="color: #333333; margin-right: 10px" value="Cadastro de Clientes" >
+                            <p:outputLabel style="color: #333333; margin-right: 10px" value="Cadastro de Serviços" >
                                 <i class="fa fa-arrow-right" aria-hidden="true"/>
                             </p:outputLabel>
                             <p:outputLabel value="Pesquisar: " for="globalFilter"/>
-                            <p:inputText id="globalFilter"  onkeyup="PF('listaClientes').filter()" />
+                            <p:inputText id="globalFilter"  onkeyup="PF('listaServicos').filter()" />
                             <p:button icon="fa fa-refresh" id="refresh" style="float:right" styleClass="ui-priority-primary"/>
                             <p:tooltip for="refresh" value="Atualizar" position="left"/>
                         </p:outputPanel>
@@ -33,27 +32,31 @@
 
                 <p:ajax event="rowSelect" process="dadosTabela" update="dadosTabela" />
 
-                <p:column headerText="Razão Social" style="width:30%" filterBy="#{dados.nome}" filterStyle="display:none">
-                    <h:outputText value="#{dados.nome}" />
+                <p:column headerText="#" style="width:5%" filterBy="#{dados.id}" filterStyle="display:none">
+                    <h:outputText value="#{dados.id}" />
                 </p:column>
 
-                <p:column headerText="Telefone" style="width:10%" filterBy="#{dados.telefone}" filterStyle="display:none">
-                    <h:outputText value="#{dados.telefone}" />
+                <p:column headerText="Nome" style="width:30%" filterBy="#{dados.entidade.nome}" filterStyle="display:none">
+                    <h:outputText value="#{dados.entidade.nome}" />
+                </p:column>
+
+                <p:column headerText="Prisma" style="width:30%" filterBy="#{dados.prisma}" filterStyle="display:none">
+                    <h:outputText value="#{dados.prisma}" />
+                </p:column>
+
+                <p:column headerText="Pago?" style="width:10%" filterBy="#{dados.pago}" filterStyle="display:none">
+                    <p:checkbox value="#{dados.pago}" />
                 </p:column>
 
                 <f:facet name="footer">
                     <div align="left">
-                        <p:button outcome="Cliente"
+                        <p:button outcome="Servico"
                                   styleClass="ui-priority-primary" value="Incluir" icon="fa fa-plus-circle"/>
 
-                        <p:button outcome="Cliente" disabled="#{entidadesBean.entidade == null}"
+                        <p:button outcome="Servico" disabled="#{servicosBean.servico == null}"
                                   value="Alterar" icon="fa fa-pencil-square-o" styleClass="ui-priority-primary">
-                            <f:param name="entidade" value="#{entidadesBean.entidade.id}" />
+                            <f:param name="entidade" value="#{servicosBean.servico.id}" />
                         </p:button>
-
-                        <p:commandButton value="Excluir" icon="fa fa-minus-circle" process="dadosTabela"
-                                         styleClass="ui-priority-primary" disabled="#{entidadesBean.entidade == null}"
-                                         action="#{entidadesBean.excluir()}" global="false" />
                     </div>
                 </f:facet>
 

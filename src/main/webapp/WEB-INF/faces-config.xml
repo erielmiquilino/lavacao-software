@@ -10,10 +10,17 @@
             <from-outcome>Home</from-outcome>
             <to-view-id>/Home.xhtml</to-view-id>
         </navigation-case>
+
         <navigation-case>
             <from-outcome>Clientes</from-outcome>
-            <to-view-id>/Sistemas/Clientes.xhtml</to-view-id>
+            <to-view-id>/Sistema/Cadastros/Clientes.xhtml</to-view-id>
         </navigation-case>
+
+        <navigation-case>
+            <from-outcome>Servicos</from-outcome>
+            <to-view-id>/Sistema/Atendimento/Servicos.xhtml</to-view-id>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>
