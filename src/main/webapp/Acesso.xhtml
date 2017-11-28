@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Lavação Cordova</title>
+</h:head>
+
+<f:metadata>
+    <f:viewParam name="dummy" />
+    <f:event listener="#{acessoBean.preRender}" type="preRenderView"  />
+</f:metadata>
+
+<h:body>
+    <div id="login-dialog">
+
+        <p:dialog id="dialog" minWidth="600"
+                  modal="true" closable="false" position="center" showEffect="slide"
+                  draggable="true" resizable="false" visible="true">
+
+            <f:facet name="header">
+                <p:outputLabel value="Lavação Cordova" />
+            </f:facet>
+
+            <h:form id="frm" prependId="false">
+
+                <h:panelGrid columns="2" styleClass="grid-login">
+                    <p:outputLabel value="Usuário:" />
+                    <p:inputText size="30" id="username" label="username" value="#{acessoBean.email}" />
+
+                    <p:outputLabel value="Senha:" />
+                    <p:password size="30" id="password" label="password"/>
+
+
+                    <h:panelGroup />
+                    <p:commandButton value="Acessar Sistema" styleClass="ui-priority-primary"
+                                     action="#{acessoBean.login}" ajax="false" />
+
+                </h:panelGrid>
+                <p:messages autoUpdate="true" />
+                <p:watermark for="username" value="email@seuemail.com.br" id="marcaDaguaEmail" />
+                <p:watermark for="password" value="senha" id="marcaDaguaSenha" />
+
+            </h:form>
+        </p:dialog>
+
+    </div>
+</h:body>
+</html>

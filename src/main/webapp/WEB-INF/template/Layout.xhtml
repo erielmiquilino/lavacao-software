@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <f:facet name="first">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </f:facet>
+
+    <title>HSI Sistemas</title>
+
+    <h:outputStylesheet library="cordova" name="styles/components.css" />
+    <h:outputStylesheet library="cordova" name="styles/custom.css" />
+    <h:outputStylesheet library="cordova" name="styles/layout.css" />
+
+    <h:outputScript target="body" library="cordova" name="app/app.js" />
+    <h:outputScript target="body" library="cordova" name="app/calendar-pt.js" />
+    <h:outputScript target="body" library="cordova" name="app/menu.js" />
+</h:head>
+
+<h:body>
+
+    <header class="aw-topbar">
+
+    </header>
+
+    <aside class="aw-sidebar  js-sidebar">
+        <button class="accordion"><i class="fa fa-fw fa-chevron-down"/>Cadastros</button>
+        <div class="panel">
+            <h:form>
+                <ul>
+                    <li class="#{view.viewId == '/Sistemas/Cadastros/Cliente.xhtml' ? 'is-selected' : ''}">
+                        <h:commandLink>
+                            <i class="fa  fa-fw  fa-user"/>Clientes
+                            <p:ajax listener="${menuBean.segurancaFormulario('Cadastros/Cliente')}" />
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </h:form>
+        </div>
+    </aside>
+
+    <section class="aw-content  js-content">
+        <ui:insert name="content" />
+    </section>
+
+</h:body>
+
+</html>
