@@ -1,6 +1,7 @@
 package br.com.cordova.converter;
 
 import br.com.cordova.model.Entidade;
+import br.com.cordova.model.EntidadeCarro;
 import br.com.cordova.service.EntidadeService;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -29,7 +30,7 @@ public class EntidadeCarroConverter implements Converter{
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         try {
-            return String.valueOf(((Entidade) value).getId());
+            return String.valueOf(((EntidadeCarro) value).getId());
         } catch (Exception e) {
             return "";
         }

@@ -98,7 +98,7 @@ public class ServicoItem {
         this.servico = servico;
     }
 
-    public Boolean isParaChoqueTraseiroEsquerdo() {
+    public Boolean getParaChoqueTraseiroEsquerdo() {
         return paraChoqueTraseiroEsquerdo;
     }
 
@@ -106,7 +106,7 @@ public class ServicoItem {
         this.paraChoqueTraseiroEsquerdo = paraChoqueTraseiroEsquerdo;
     }
 
-    public Boolean isParaChoqueTraseiroDireito() {
+    public Boolean getParaChoqueTraseiroDireito() {
         return paraChoqueTraseiroDireito;
     }
 
@@ -114,7 +114,7 @@ public class ServicoItem {
         this.paraChoqueTraseiroDireito = paraChoqueTraseiroDireito;
     }
 
-    public Boolean isParaChoqueTraseiroMeio() {
+    public Boolean getParaChoqueTraseiroMeio() {
         return paraChoqueTraseiroMeio;
     }
 
@@ -122,7 +122,7 @@ public class ServicoItem {
         this.paraChoqueTraseiroMeio = paraChoqueTraseiroMeio;
     }
 
-    public Boolean isParaChoqueDianteiroEsquerdo() {
+    public Boolean getParaChoqueDianteiroEsquerdo() {
         return paraChoqueDianteiroEsquerdo;
     }
 
@@ -130,7 +130,7 @@ public class ServicoItem {
         this.paraChoqueDianteiroEsquerdo = paraChoqueDianteiroEsquerdo;
     }
 
-    public Boolean isParaChoqueDianteiroDireito() {
+    public Boolean getParaChoqueDianteiroDireito() {
         return paraChoqueDianteiroDireito;
     }
 
@@ -138,7 +138,7 @@ public class ServicoItem {
         this.paraChoqueDianteiroDireito = paraChoqueDianteiroDireito;
     }
 
-    public Boolean isParaChoqueDianteiroMeio() {
+    public Boolean getParaChoqueDianteiroMeio() {
         return paraChoqueDianteiroMeio;
     }
 
@@ -146,7 +146,7 @@ public class ServicoItem {
         this.paraChoqueDianteiroMeio = paraChoqueDianteiroMeio;
     }
 
-    public Boolean isCapoTraseiro() {
+    public Boolean getCapoTraseiro() {
         return capoTraseiro;
     }
 
@@ -154,7 +154,7 @@ public class ServicoItem {
         this.capoTraseiro = capoTraseiro;
     }
 
-    public Boolean isCapoDianteiro() {
+    public Boolean getCapoDianteiro() {
         return capoDianteiro;
     }
 
@@ -162,7 +162,7 @@ public class ServicoItem {
         this.capoDianteiro = capoDianteiro;
     }
 
-    public Boolean isPortaDianteiraDireita() {
+    public Boolean getPortaDianteiraDireita() {
         return portaDianteiraDireita;
     }
 
@@ -170,7 +170,7 @@ public class ServicoItem {
         this.portaDianteiraDireita = portaDianteiraDireita;
     }
 
-    public Boolean isPortaDianteiraEsquerda() {
+    public Boolean getPortaDianteiraEsquerda() {
         return portaDianteiraEsquerda;
     }
 
@@ -178,7 +178,7 @@ public class ServicoItem {
         this.portaDianteiraEsquerda = portaDianteiraEsquerda;
     }
 
-    public Boolean isPortaTraseiraDireita() {
+    public Boolean getPortaTraseiraDireita() {
         return portaTraseiraDireita;
     }
 
@@ -186,7 +186,7 @@ public class ServicoItem {
         this.portaTraseiraDireita = portaTraseiraDireita;
     }
 
-    public Boolean isPortaTraseiraEsquerda() {
+    public Boolean getPortaTraseiraEsquerda() {
         return portaTraseiraEsquerda;
     }
 
@@ -194,7 +194,7 @@ public class ServicoItem {
         this.portaTraseiraEsquerda = portaTraseiraEsquerda;
     }
 
-    public Boolean isLateralEsquerda() {
+    public Boolean getLateralEsquerda() {
         return lateralEsquerda;
     }
 
@@ -202,7 +202,7 @@ public class ServicoItem {
         this.lateralEsquerda = lateralEsquerda;
     }
 
-    public Boolean isLateralDireita() {
+    public Boolean getLateralDireita() {
         return lateralDireita;
     }
 
@@ -210,7 +210,7 @@ public class ServicoItem {
         this.lateralDireita = lateralDireita;
     }
 
-    public Boolean isFarolEsquerdo() {
+    public Boolean getFarolEsquerdo() {
         return farolEsquerdo;
     }
 
@@ -218,7 +218,7 @@ public class ServicoItem {
         this.farolEsquerdo = farolEsquerdo;
     }
 
-    public Boolean isFarolDireito() {
+    public Boolean getFarolDireito() {
         return farolDireito;
     }
 
@@ -226,7 +226,7 @@ public class ServicoItem {
         this.farolDireito = farolDireito;
     }
 
-    public Boolean isLanternaEsquerda() {
+    public Boolean getLanternaEsquerda() {
         return lanternaEsquerda;
     }
 
@@ -234,7 +234,7 @@ public class ServicoItem {
         this.lanternaEsquerda = lanternaEsquerda;
     }
 
-    public Boolean isLanternaDireita() {
+    public Boolean getLanternaDireita() {
         return lanternaDireita;
     }
 

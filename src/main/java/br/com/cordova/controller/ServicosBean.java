@@ -1,6 +1,7 @@
 package br.com.cordova.controller;
 
 import br.com.cordova.model.Servico;
+import br.com.cordova.model.dados.StatusServico;
 import br.com.cordova.service.ServicoService;
 
 import javax.annotation.PostConstruct;
@@ -26,6 +27,16 @@ public class ServicosBean implements Serializable {
     @PostConstruct
     public void init() {
         servicos = servicoService.listarServicos();
+    }
+
+    public void fechar() {
+        servico.setStatusServico(StatusServico.FECHADO);
+        servicoService.salvar(servico);
+    }
+
+    public void entregar() {
+        servico.setStatusServico(StatusServico.ENTREGUE);
+        servicoService.salvar(servico);
     }
 
     public Servico getServico() {

@@ -1,6 +1,8 @@
 package br.com.cordova.model;
 
 import br.com.cordova.model.dados.StatusServico;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,11 +32,12 @@ public class Servico {
 
     private String observacao;
 
-    private LocalDateTime data;
+    private LocalDateTime data = LocalDateTime.now();
 
     private Boolean pago;
 
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true,cascade = CascadeType.ALL,mappedBy = "servico", targetEntity = ServicoItem.class)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy = "servico", targetEntity = ServicoItem.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<ServicoItem> servicoItems = new ArrayList<>();
 
     public Long getId() {

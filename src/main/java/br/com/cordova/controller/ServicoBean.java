@@ -1,17 +1,19 @@
 package br.com.cordova.controller;
 
 import br.com.cordova.model.Entidade;
-import br.com.cordova.model.EntidadeCarro;
 import br.com.cordova.model.Servico;
 import br.com.cordova.model.ServicoItem;
+import br.com.cordova.model.dados.StatusServico;
 import br.com.cordova.service.EntidadeService;
 import br.com.cordova.service.ServicoService;
-import br.com.cordova.util.jsf.FacesUtil;
 
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Named
@@ -38,17 +40,25 @@ public class ServicoBean implements Serializable {
         }
     }
 
-    public void salvar() {
+    public void salvar() throws IOException {
+        servico.setStatusServico(StatusServico.ABERTO);
         servicoService.salvar(servico);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/CORDOVA/Sistema/Atendimento/Servicos.xhtml");
     }
 
     public void incluirServicoItem() {
-        servicoItem.setServico(servico);
-        servico.getServicoItems().add(servicoItem);
+        if (servicoItem.getEntidadeCarro() != null) {
+            servicoItem.setServico(servico);
+            servico.getServicoItems().add(servicoItem);
+        }
     }
 
     public void excluirServicoItem(ServicoItem servicoItem) {
         servico.getServicoItems().remove(servicoItem);
+    }
+
+    public void informcaoesDoVeiculo(ServicoItem servicoItem) {
+        this.servicoItem = servicoItem;
     }
 
     public void refreshEntidade() {

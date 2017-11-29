@@ -7,7 +7,7 @@
         <jta-data-source>java:comp/env/jdbc/banco</jta-data-source>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cordova_app?createDatabaseIfNotExist=true&amp;autoReconnect=true&amp;useSSL=false" />
-            <property name="javax.persistence.jdbc.password" value="root" />
+            <property name="javax.persistence.jdbc.password" value="HSI-p2w*" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 

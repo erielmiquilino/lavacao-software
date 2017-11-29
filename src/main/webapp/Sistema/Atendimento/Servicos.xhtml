@@ -36,7 +36,7 @@
                     <h:outputText value="#{dados.id}" />
                 </p:column>
 
-                <p:column headerText="Nome" style="width:30%" filterBy="#{dados.entidade.nome}" filterStyle="display:none">
+                <p:column headerText="Nome" style="width:80%" filterBy="#{dados.entidade.nome}" filterStyle="display:none">
                     <h:outputText value="#{dados.entidade.nome}" />
                 </p:column>
 
@@ -44,8 +44,12 @@
                     <h:outputText value="#{dados.prisma}" />
                 </p:column>
 
-                <p:column headerText="Pago?" style="width:10%" filterBy="#{dados.pago}" filterStyle="display:none">
-                    <p:checkbox value="#{dados.pago}" />
+                <p:column headerText="Status Serviço" style="width:30%" filterBy="#{dados.statusServico}" filterStyle="display:none">
+                    <h:outputText value="#{dados.statusServico}" />
+                </p:column>
+
+                <p:column headerText="Pago?" style="width:7%; text-align: center " filterBy="#{dados.pago}" filterStyle="display:none">
+                    <p:selectBooleanCheckbox value="#{dados.pago}" />
                 </p:column>
 
                 <f:facet name="footer">
@@ -55,8 +59,11 @@
 
                         <p:button outcome="Servico" disabled="#{servicosBean.servico == null}"
                                   value="Alterar" icon="fa fa-pencil-square-o" styleClass="ui-priority-primary">
-                            <f:param name="entidade" value="#{servicosBean.servico.id}" />
+                            <f:param name="servico" value="#{servicosBean.servico.id}" />
                         </p:button>
+
+                        <p:commandButton value="Fechar" actionListener="#{servicosBean.fechar()}" update="dadosTabela" />
+                        <p:commandButton value="Entregar" actionListener="#{servicosBean.entregar()}" update="dadosTabela" />
                     </div>
                 </f:facet>
 

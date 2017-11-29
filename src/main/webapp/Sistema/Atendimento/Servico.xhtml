@@ -31,7 +31,8 @@
                         </h:panelGroup>
 
                         <p:outputLabel value="Data/Hora" />
-                        <p:calendar />
+                        <p:calendar id="data" pattern="dd/MM/yyyy HH:mm:ss" converter="#{localDateTimeConverter}"
+                                    value="#{servicoBean.servico.data}"/>
 
                         <p:outputLabel value="Prisma" />
                         <p:inputText value="#{servicoBean.servico.prisma}" />
@@ -52,13 +53,14 @@
 
                         <p:outputLabel value="Carro:" for="carro" />
                         <p:selectOneMenu id="carro" value="#{servicoBean.servicoItem.entidadeCarro}" converter="#{entidadeCarroConverter}"  >
+                            <f:selectItem itemValue="" itemLabel="Selecione..." />
                             <f:selectItems value="#{servicoBean.servico.entidade.entidadeCarros}"
                                            var="entidadeCarro" itemLabel="#{entidadeCarro.modelo}"
                                            itemValue="#{entidadeCarro}" />
                         </p:selectOneMenu>
 
                         <p:commandButton style="width: 100px" actionListener="#{servicoBean.incluirServicoItem()}"
-                                value="Incluir" process="@this, frm:carro, frm:tabelaCarros" update="frm:tabelaCarros"/>
+                                value="Incluir" update="frm:tabelaCarros" process="@this, frm:carro" />
 
                     </h:panelGrid>
 
@@ -78,9 +80,12 @@
                         </p:column>
 
 
-                        <p:column headerText="..." style="width:20%">
+                        <p:column headerText="..." style="width:7%">
                             <p:commandButton icon="fa fa-trash-o" update="tabelaCarros"
                                              actionListener="#{servicoBean.excluirServicoItem(carro)}" />
+                            <p:commandButton icon="fa fa-info-circle" update="tabelaCarros"
+                                             onclick="PF('infoViewDialog').show();" type="button"
+                                             actionListener="#{servicoBean.informcaoesDoVeiculo(carro)}" />
                         </p:column>
 
                     </p:dataTable>
@@ -118,7 +123,6 @@
             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-priority-primary"
                              icon="fa fa-close" />
         </p:confirmDialog>
-
 
         <p:dialog widgetVar="entidadeDialog" modal="true" height="250" header="Pesquisa de Clientes"
                   width="500" resizable="false">
@@ -168,6 +172,61 @@
             </h:form>
         </p:dialog>
 
+
+
+        <p:dialog widgetVar="infoViewDialog" modal="true" height="350" header="Informações do Veiculo (Partes defeituosas)"
+                  width="600" resizable="false" id="infoViewDialog" >
+            <h:panelGrid columns="4" style="width:100%" id="infoVeiculo">
+                <p:outputLabel value="Para-choque Dianteiro"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerdo" value="#{servicoBean.servicoItem.paraChoqueDianteiroEsquerdo}"/>
+                <p:selectBooleanCheckbox itemLabel="Meio" value="#{servicoBean.servicoItem.paraChoqueDianteiroMeio}"/>
+                <p:selectBooleanCheckbox itemLabel="Direito" value="#{servicoBean.servicoItem.paraChoqueDianteiroDireito}"/>
+
+                <p:outputLabel value="Para-choque Traseiro"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerdo" value="#{servicoBean.servicoItem.paraChoqueTraseiroEsquerdo}"/>
+                <p:selectBooleanCheckbox itemLabel="Meio" value="#{servicoBean.servicoItem.paraChoqueTraseiroMeio}"/>
+                <p:selectBooleanCheckbox itemLabel="Direito" value="#{servicoBean.servicoItem.paraChoqueTraseiroDireito}"/>
+
+                <p:outputLabel value="Capô"/>
+                <p:selectBooleanCheckbox itemLabel="Dianteiro" value="#{servicoBean.servicoItem.capoDianteiro}"/>
+                <p:selectBooleanCheckbox itemLabel="Traseiro" value="#{servicoBean.servicoItem.capoTraseiro}"/>
+                <p:outputLabel value=""/>
+
+                <p:outputLabel value="Porta Dianteira"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerda" value="#{servicoBean.servicoItem.portaDianteiraEsquerda}"/>
+                <p:selectBooleanCheckbox itemLabel="Direita" value="#{servicoBean.servicoItem.portaDianteiraDireita}"/>
+                <p:outputLabel value=""/>
+
+
+                <p:outputLabel value="Porta Traseira"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerda" value="#{servicoBean.servicoItem.portaTraseiraEsquerda}"/>
+                <p:selectBooleanCheckbox itemLabel="Direita" value="#{servicoBean.servicoItem.portaTraseiraDireita}"/>
+                <p:outputLabel value=""/>
+
+                <p:outputLabel value="Lateral"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerda"  value="#{servicoBean.servicoItem.lateralEsquerda}"/>
+                <p:selectBooleanCheckbox itemLabel="Direita" value="#{servicoBean.servicoItem.lateralDireita}"/>
+                <p:outputLabel value=""/>
+
+                <p:outputLabel value="Farol"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerdo" value="#{servicoBean.servicoItem.farolEsquerdo}"/>
+                <p:selectBooleanCheckbox itemLabel="Direito" value="#{servicoBean.servicoItem.farolDireito}"/>
+                <p:outputLabel value=""/>
+
+                <p:outputLabel value="Lanterna"/>
+                <p:selectBooleanCheckbox itemLabel="Esquerda" value="#{servicoBean.servicoItem.lanternaEsquerda}"/>
+                <p:selectBooleanCheckbox itemLabel="Direita" value="#{servicoBean.servicoItem.lanternaDireita}"/>
+                <p:outputLabel value=""/>
+            </h:panelGrid>
+
+            <f:facet name="footer">
+                <div align="left">
+                    <p:commandButton value="Salvar" styleClass="ui-priority-primary"
+                                     oncomplete="PF('infoViewDialog').hide()"
+                                     process="infoVeiculo" />
+                </div>
+            </f:facet>
+        </p:dialog>
 
     </ui:define>
 
