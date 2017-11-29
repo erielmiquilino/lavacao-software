@@ -52,7 +52,6 @@
 
                         <p:outputLabel value="Carro:" for="carro" />
                         <p:selectOneMenu id="carro" value="#{servicoBean.servicoItem.entidadeCarro}" converter="#{entidadeCarroConverter}"  >
-                            <f:selectItem itemLabel="Selecione..." />
                             <f:selectItems value="#{servicoBean.servico.entidade.entidadeCarros}"
                                            var="entidadeCarro" itemLabel="#{entidadeCarro.modelo}"
                                            itemValue="#{entidadeCarro}" />
@@ -121,8 +120,8 @@
         </p:confirmDialog>
 
 
-        <p:dialog widgetVar="entidadeDialog" modal="true" height="450" header="Pesquisa de Clientes"
-                  width="850" resizable="false">
+        <p:dialog widgetVar="entidadeDialog" modal="true" height="250" header="Pesquisa de Clientes"
+                  width="500" resizable="false">
             <h:form>
                 <p:dataTable value="#{servicoBean.entidades}"
                              widgetVar="listaEntidades" selectionMode="single"

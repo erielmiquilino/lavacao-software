@@ -25,37 +25,12 @@
 <h:body>
 
     <header class="aw-topbar">
-
+        <a href="#" class="aw-toggle  js-toggle"> <i class="fa fa-bars fa-2x" /></a>
+        <p:outputLabel value="Cordova" style="color: white;position: absolute;margin-top: 14px;font-size: x-large;" />
     </header>
 
     <aside class="aw-sidebar  js-sidebar">
-        <button class="accordion"><i class="fa fa-fw fa-chevron-down"/>Cadastros</button>
-        <div class="panel">
-            <h:form>
-                <ul>
-                    <li class="#{view.viewId == '/Sistema/Cadastros/Clientes.xhtml' ? 'is-selected' : ''}">
-                        <h:commandLink>
-                            <i class="fa  fa-fw  fa-user"/>Clientes
-                            <p:ajax listener="${menuBean.segurancaFormulario('Cadastros/Clientes')}" />
-                        </h:commandLink>
-                    </li>
-                </ul>
-            </h:form>
-        </div>
-
-        <button class="accordion"><i class="fa fa-fw fa-chevron-down"/>Atendimento</button>
-        <div class="panel">
-            <h:form>
-                <ul>
-                    <li class="#{view.viewId == '/Sistema/Atendimento/Servicos.xhtml' ? 'is-selected' : ''}">
-                        <h:commandLink>
-                            <i class="fa  fa-fw  fa-user"/>Serviços
-                            <p:ajax listener="${menuBean.segurancaFormulario('Atendimento/Servicos')}" />
-                        </h:commandLink>
-                    </li>
-                </ul>
-            </h:form>
-        </div>
+        <ui:include src="Menu.xhtml" />
     </aside>
 
     <section class="aw-content  js-content">

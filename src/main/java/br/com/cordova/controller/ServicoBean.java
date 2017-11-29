@@ -27,7 +27,6 @@ public class ServicoBean implements Serializable {
     private Servico servico;
     private ServicoItem servicoItem;
 
-
     private List<Entidade> entidades;
     private List<Entidade> entidadesFiltro;
 
@@ -44,7 +43,6 @@ public class ServicoBean implements Serializable {
     }
 
     public void incluirServicoItem() {
-        System.out.println(servicoItem.getEntidadeCarro().getModelo());
         servicoItem.setServico(servico);
         servico.getServicoItems().add(servicoItem);
     }

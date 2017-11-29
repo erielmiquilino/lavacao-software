@@ -9,7 +9,7 @@
             auth="Container"
             type="javax.sql.DataSource"
             username="root"
-            password="HSI-p2w*"
+            password="root"
             driverClassName="com.mysql.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/cordova_app?autoReconnect=true&amp;useSSL=false" />
 

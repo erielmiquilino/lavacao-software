@@ -33,7 +33,7 @@
                     <url>jdbc:mysql://localhost:3306/cordova_app</url>
                     <defaultSchemaName>cordova_app</defaultSchemaName>
                     <username>root</username>
-                    <password>HSI-p2w*</password>
+                    <password>root</password>
                     <referenceUrl>hibernate:ejb3:cordova-app?hibernate.ejb.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy?dialect=org.hibernate.dialect.MySQLDialect</referenceUrl>
                 </configuration>
                 <dependencies>
